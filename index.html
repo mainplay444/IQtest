@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="IQ NOVA — бесплатный интерактивный тест на логику и закономерности. 12 заданий, четыре языка и личные рекорды.">
+<meta name="color-scheme" content="dark">
+<meta property="og:title" content="IQ NOVA — Logic Challenge">
+<meta property="og:description" content="Проверь логическое мышление в бесплатном интерактивном тесте.">
+<meta property="og:type" content="website">
+<title>IQ NOVA — Logic Challenge</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <div class="brand"><div class="logo">✦</div><div>IQ NOVA<small>LOGIC CHALLENGE</small></div></div>
+  <div class="top-right"><span class="pill" data-i18n="badge">БЕСПЛАТНЫЙ ТЕСТ</span><select id="lang" aria-label="Language"><option value="ru">Русский</option><option value="de">Deutsch</option><option value="uk">Українська</option><option value="en">English</option></select></div>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div>
+      <div class="eyebrow" data-i18n="eyebrow">ПРОВЕРЬ СВОЮ ЛОГИКУ</div>
+      <h1><span data-i18n="hero1">Думай.</span><br><span class="gradient" data-i18n="hero2">Находи закономерности.</span></h1>
+      <p class="lead" data-i18n="lead">12 заданий на числовые последовательности и логические закономерности. Сможешь пройти все?</p>
+      <div class="actions"><button class="btn primary" id="startBtn"><span data-i18n="start">Начать тест</span> <span>→</span></button><button class="btn secondary" id="recordsBtn" data-i18n="recordsBtn">🏆 Рекорды</button></div>
+      <p class="small-note" data-i18n="disclaimer">Это развлекательный тест на логику, а не стандартизированное измерение IQ.</p>
+    </div>
+    <div class="visual"><div class="orb"><div class="brain">🧠</div></div><div class="float-tag tag1">∑  ∞  ◇</div><div class="float-tag tag2" data-i18n="tag2">12 логических задач</div></div>
+  </section>
+  <section class="stats">
+    <div class="stat"><strong>12</strong><span data-i18n="stat1">заданий</span></div><div class="stat"><strong>4</strong><span data-i18n="stat2">языка</span></div><div class="stat"><strong>0 €</strong><span data-i18n="stat3">стоимость</span></div>
+  </section>
+  <h2 class="section-title" data-i18n="why">Твой мозг — твой инструмент</h2>
+  <section class="features">
+    <article class="feature"><div class="ico">🔷</div><h3 data-i18n="f1t">Закономерности</h3><p data-i18n="f1p">Ищи связь между числами и продолжай последовательность.</p></article>
+    <article class="feature"><div class="ico">⚡</div><h3 data-i18n="f2t">Быстрый раунд</h3><p data-i18n="f2p">Следи за прогрессом и решай задачи в собственном темпе.</p></article>
+    <article class="feature"><div class="ico">🏆</div><h3 data-i18n="f3t">Личные рекорды</h3><p data-i18n="f3p">Сохраняй лучшие результаты на этом устройстве и делись ими.</p></article>
+  </section>
+</main>
+
+<section id="quiz" class="quiz-shell hidden" aria-live="polite">
+  <div class="quiz-topline"><span id="progressText">Вопрос 1 из 12</span><span>⏱ <strong id="timer">00:00</strong></span></div>
+  <div class="progress"><div id="progressBar"></div></div>
+  <div class="qcard" id="questionCard"></div>
+</section>
+
+<section id="result" class="quiz-shell hidden">
+  <div class="qcard result">
+    <div class="eyebrow" data-i18n="finished">ТЕСТ ЗАВЕРШЁН</div>
+    <div class="score-ring" id="scoreRing"><strong id="scoreText">0/12</strong></div>
+    <h2 id="resultTitle">Отличная работа!</h2>
+    <p id="resultDesc"></p>
+    <div class="name-row"><input id="playerName" maxlength="18" data-i18n-placeholder="namePlaceholder" placeholder="Твой никнейм"><button class="btn primary" id="saveBtn" data-i18n="save">Сохранить</button></div>
+    <div class="actions" style="justify-content:center"><button class="btn secondary" id="shareBtn" data-i18n="share">↗ Поделиться</button><button class="btn primary" id="againBtn" data-i18n="again">Пройти ещё раз</button></div>
+    <p class="small-note" data-i18n="resultNote">Баллы отражают только результат этого набора заданий и не являются официальным IQ.</p>
+  </div>
+  <div class="leaderboard"><h3 data-i18n="leaderboard">🏆 Локальные рекорды</h3><div id="recordsList"></div><p class="small-note" data-i18n="localNote">Рекорды хранятся только в браузере этого устройства. Это не общий рейтинг всех посетителей.</p></div>
+</section>
+
+<section id="recordsPage" class="quiz-shell hidden">
+  <div class="qcard"><div class="eyebrow" data-i18n="leaderboard">🏆 Локальные рекорды</div><h2 data-i18n="recordsTitle">Твои лучшие результаты</h2><div id="recordsPageList"></div><div class="actions"><button class="btn primary" id="recordsStart" data-i18n="start">Начать тест</button><button class="btn secondary" id="backHome" data-i18n="home">На главную</button></div><p class="small-note" data-i18n="localNote">Рекорды хранятся только в браузере этого устройства. Это не общий рейтинг всех посетителей.</p></div>
+</section>
+
+<footer class="footer"><div>IQ NOVA · <span data-i18n="footer">Создано для любознательных умов.</span></div><div data-i18n="footerNote">Не является профессиональным психологическим тестированием. Результат зависит от конкретных заданий.</div></footer>
+</div>
+<div class="toast" id="toast"></div>
+
+<script src="script.js" defer></script>
+</body>
+</html>
